@@ -42,9 +42,9 @@ def say(word=None, words=None):
 
 
 # Write your line count function here
-def meaningful_line_count(filename):
+def meaningful_line_count(file_name):
     try:
-        with open(filename, 'r',encoding = 'UTF-8') as file:
+        with open(file_name, 'r',encoding = 'UTF-8') as file:
             valid_line_count = 0
             for lines in file:
                 stripped_line = lines.strip()  # Remove leading and trailing whitespace
@@ -105,7 +105,6 @@ class Quaternion:
             if component == 'w':
                 return f"{value}"
             elif abs_val == 1:
-                print("here")
                 return f"{sign}{component}"
             else:
                 return f"{sign}{abs_val}{component}"
