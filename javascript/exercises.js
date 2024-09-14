@@ -56,6 +56,7 @@ export async function* meaningfulLineCount(fileName){
         lineNumber ++
       }
     }
+    file.close()
     return lineNumber
   }
   catch (error) {

@@ -66,7 +66,7 @@ class Quaternion:
     d: float
 
     @property
-    def coefficients(self) -> List[float]:          #coefficient failed even though output is the same
+    def coefficients(self) -> List[str]:          #coefficient failed even though output is the same
         """Return the list of coefficients [a, b, c, d]."""
         return ["%.1f"% self.a, "%.1f"% self.b, "%.1f"% self.c, "%.1f"% self.d]
 
@@ -90,8 +90,10 @@ class Quaternion:
             a1 * d2 + b1 * c2 - c1 * b2 + d1 * a2
         )
 
-    def __eq__(self, other: 'Quaternion') -> bool:
+    def __eq__(self, other: object) -> bool:
         """Check if tao quaternions are equal."""
+        if not isinstance(other,Quaternion):
+            return NotImplemented
         return (self.a == other.a and self.b == other.b and 
                 self.c == other.c and self.d == other.d)
 
