@@ -101,7 +101,7 @@ export class Quaternion {
     return new Quaternion(this.a, -this.b, -this.c, -this.d);
   }
 
-  eotheruals(other) {
+  equals(other) {
     return this.a === other.a && this.b === other.b && this.c === other.c && this.d === other.d;
   }
 
