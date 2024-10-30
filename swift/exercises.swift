@@ -35,7 +35,7 @@ func say(_ word: String = "") -> Sayer {
 
 
 // Write your meaningfulLineCount function here
-func meaningfulLineCount(_ filename: String) -> Result<Int, NoSuchFileError> {
+func meaningfulLineCount(_ filename: String) async -> Result<Int, NoSuchFileError> {
     guard let contents = try? String(contentsOfFile: filename) else {
         return .failure(NoSuchFileError())
     }
