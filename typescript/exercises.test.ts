@@ -173,3 +173,5 @@ describe("The BinarySearchTree class", () => {
     deepEqual(t.size(), 2)
   })
 })
+
+//npx tsx exercises.test.ts
