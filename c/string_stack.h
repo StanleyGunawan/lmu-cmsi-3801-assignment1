@@ -166,7 +166,6 @@ string_response pop(stack s)
     return (string_response){.code = success, .string = item};
 }
 
-// Destroy the stack and free all memory
 void destroy(stack *s)
 {
     if (!s || !*s)
