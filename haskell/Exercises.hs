@@ -11,9 +11,6 @@ module Exercises
     inorder,
     insert,
     contains
-    -- empty
-    --toString
-      -- put the proper exports here
     ) where
 
 import qualified Data.Map as Map
@@ -33,15 +30,12 @@ change amount
                 (count, newRemaining) = remaining `divMod` d
                 newCounts = Map.insert d count counts
 
--- Write your first then apply function here
 firstThenApply :: [a] -> (a -> Bool) -> (a -> b) -> Maybe b
 firstThenApply xs predicate func = fmap func (find predicate xs)
 
--- Write your infinite powers generator here
 powers :: Integer -> [Integer]
 powers base = map (base^) [0..]
 
--- Write your line count function here
 meaningfulLineCount :: FilePath -> IO Int
 meaningfulLineCount path = do
     contents <- readFile path
@@ -49,7 +43,6 @@ meaningfulLineCount path = do
     where
       meaningfulLine line = not (all isSpace line) && not ("#" `isPrefixOf` (dropWhile isSpace line))
 
--- Write your shape data type here
 data Shape = Sphere Double | Box Double Double Double 
     deriving (Eq, Show)
 
@@ -60,9 +53,6 @@ volume (Box w h d) = w * h * d
 surfaceArea :: Shape -> Double
 surfaceArea (Sphere r) = 4 * pi * r^2
 surfaceArea (Box w h d) =  2 * (w * h + w * d + h * d)
-
--- Write your binary search tree algebraic type here
-
 
 data BST a = Empty | Node a (BST a) (BST a) 
 

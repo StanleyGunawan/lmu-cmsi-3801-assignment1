@@ -13,8 +13,7 @@ export function change(amount: bigint): Map<bigint, bigint> {
   return counts
 }
 
-// Write your first then apply function here
-export function firstThenApply<T, U>(items: T[], predicate: (item: T) => boolean, transformer: (item: T) => U) : U | undefined {
+export function firstThenApply<T, U>(items: T[], predicate: (item: T) => boolean, transformer: (item: T) => U): U | undefined {
   for (const item of items) {
     if (predicate(item)) {
       return transformer(item)
@@ -22,23 +21,21 @@ export function firstThenApply<T, U>(items: T[], predicate: (item: T) => boolean
   }
 }
 
-// Write your powers generator here
-export function* powersGenerator(base: bigint) : Generator<bigint>{
-  let exponent : bigint = 0n
+export function* powersGenerator(base: bigint): Generator<bigint> {
+  let exponent: bigint = 0n
   while (true) {
     yield base ** exponent
     exponent++
   }
 }
 
-// Write your line count function here
-export async function meaningfulLineCount(path: string) : Promise<number> {
-  let count : number = 0
-  const file : FileHandle = await open(path, 'r')
+export async function meaningfulLineCount(path: string): Promise<number> {
+  let count: number = 0
+  const file: FileHandle = await open(path, 'r')
   if (file === undefined) {
     throw new Error(`File ${path} cannot be found.`)
   }
-  for await(const line of file.readLines()) {
+  for await (const line of file.readLines()) {
     if ((line !== "") && (line.trim() !== "") && (line.trim()[0] !== "#")) {
       count++
     }
@@ -47,21 +44,20 @@ export async function meaningfulLineCount(path: string) : Promise<number> {
   return count
 }
 
-// Write your shape type and associated functions here
 export type Shape = sphere | box
-interface box{
+interface box {
   readonly kind: "Box"
   readonly width: number
   readonly length: number
   readonly depth: number
 }
 
-interface sphere{
+interface sphere {
   readonly kind: "Sphere"
   readonly radius: number
 }
 
-export function surfaceArea(shape: Shape) : number {
+export function surfaceArea(shape: Shape): number {
   switch (shape.kind) {
     case "Box":
       return 2 * (shape.width * shape.length + shape.width * shape.depth + shape.length * shape.depth)
@@ -70,7 +66,7 @@ export function surfaceArea(shape: Shape) : number {
   }
 }
 
-export function volume(shape: Shape) : number {
+export function volume(shape: Shape): number {
   switch (shape.kind) {
     case "Box":
       return shape.width * shape.length * shape.depth
@@ -79,24 +75,23 @@ export function volume(shape: Shape) : number {
   }
 }
 
-export function toString(shape : Shape) : string {
+export function toString(shape: Shape): string {
   return '$(shape.kind)'
-} 
+}
 
-export function equals(shape1: Shape, shape2: Shape) : boolean {
+export function equals(shape1: Shape, shape2: Shape): boolean {
   if (shape1.kind === "Box" && shape2.kind === "Box") {
-      return (
-        shape1.width === shape2.width && 
-        shape1.length === shape2.length && 
-        shape1.depth === shape2.depth)
+    return (
+      shape1.width === shape2.width &&
+      shape1.length === shape2.length &&
+      shape1.depth === shape2.depth)
   }
   if (shape1.kind === "Sphere" && shape2.kind === "Sphere") {
-      return shape1.radius === shape2.radius
+    return shape1.radius === shape2.radius
   }
   return false
 }
 
-// Write your binary search tree implementation here
 export interface BinarySearchTree<T> {
   size(): number
   contains(item: T): boolean
@@ -125,7 +120,7 @@ class Node<T> implements BinarySearchTree<T> {
     }
     else if (target < this.item) {
       return this.left.contains(target)
-    } 
+    }
     else if (target > this.item) {
       return this.right.contains(target)
     }

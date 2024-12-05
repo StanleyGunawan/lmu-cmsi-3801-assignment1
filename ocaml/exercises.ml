@@ -12,20 +12,17 @@ let change amount =
     in
     aux amount denominations
 
-(* Write your first then apply function here *)
 let first_then_apply array predicate transformer = 
   match List.find_opt predicate array with
   | None -> None
   | Some x -> transformer x;;
 
-(* Write your powers generator here *)
 let powers_generator base = 
   let rec generate_from power () =
     Seq.Cons(power, generate_from (power * base))
   in
   generate_from 1;;
 
-(* Write your line count function here *)
 let meaningful_line_count file_path =
   let count_lines ic =
     let rec count acc =
@@ -46,7 +43,6 @@ let meaningful_line_count file_path =
       (fun () -> count_lines ic)
   )
 
-(* Write your shape type and associated functions here *)
 type shape = 
   | Sphere of float
   | Box of float * float * float
@@ -59,8 +55,6 @@ let surface_area = function
 let volume = function
   | Sphere r -> (4.0 /. 3.0) *. Float.pi *. r ** 3.0
   | Box (w,h,d) -> w *. h *. d
-
-(* Write your binary search tree implementation here *)
 
 type 'a binary_search_tree = 
   | Empty
